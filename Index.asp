@@ -12,7 +12,7 @@
 </head>
 <frameset rows="110,*,60" cols="*" frameborder="no" border="0" framespacing="0">
   <frame src="top.asp" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
-  <frameset cols="180,*" frameborder="no" border="0" framespacing="0">
+  <frameset cols="180,*" frameborder="no" border="1" framespacing="0">
     <frame src="left.asp" name="leftFrame" scrolling="No" noresize="noresize" id="leftFrame" title="leftFrame" />
     <frame src="main.asp" name="mainFrame" id="mainFrame" title="mainFrame" />
   </frameset>
