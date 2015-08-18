@@ -17,6 +17,7 @@
   <a href="#" class="list-group-item">库存管理</a>
   <a href="#" class="list-group-item">销售管理</a>
   <a href="#" class="list-group-item">调配管理</a>
+  <a href="pro/action.logout.asp" class="list-group-item" target="_parent">退出系统</a>
 </div>
 </body>
 </html>
