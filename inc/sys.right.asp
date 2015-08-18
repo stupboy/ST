@@ -1,14 +1,13 @@
 <%
-'1.Èç¹ûSESSION USERNAMEÖµÎª¿ÕÔòÌø×ªµÇÈëÒ³Ãæ
-if session("UserName")=""  then                                                    'Èç¹ûÓÃ»§ÃûSESSIONÖµÎª¿Õ
-response.write "<script>parent.location.href='pro/action.login.asp';</script>"     'Ìø×ªµÇÈëÒ³Ãæ
-response.End()                                                                     'Êä³öÖÕÖ¹
-end if                                                                             'Ìõ¼ş½áÊø
-'2.ÉèÖÃSESSION¹ıÆÚÊ±¼ä
-Session.Timeout=15                                                                 'SEESIONÓĞĞ§Ê±¼äÎª15·ÖÖÓ 
-'3.ÍøÕ¾ÅäÖÃÎÄ¼ş
-'ÍøÕ¾±êÌâ
-WebTitle="ÏúÊÛ¿â´æ¹ÜÀí"
-
-
+'1.å¦‚æœSESSION USERNAMEå€¼ä¸ºç©ºåˆ™è·³è½¬ç™»å…¥é¡µé¢
+'å¦‚æœSESSIONä¸ºç©ºåˆ™è·³è½¬ä¸»é¡µé¢
+If session("UserName")="" then                            
+response.write "<script>parent.location.href='pro/action.login.asp';</script>"    
+response.End()                                                                   
+end If                                                                             
+'2.è®¾ç½®SESSIONè¿‡æœŸæ—¶é—´
+Session.Timeout=15                                                                 'SEESIONæœ‰æ•ˆæ—¶é—´ä¸º15åˆ†é’Ÿ 
+'3.ç½‘ç«™é…ç½®æ–‡ä»¶
+'ç½‘ç«™æ ‡é¢˜
+WebTitle="ç½‘ç«™ä¸»é¡µ"
 %>
