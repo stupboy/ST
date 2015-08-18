@@ -66,7 +66,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-  <div class="panel-body"><iframe id="MainF" name="MainF" src="http://www.jb51.net" width="100%" frameborder="0" height="600px" scrolling="auto">xxx</iframe></div>
+  <div class="panel-body"><iframe id="MainF" name="MainF" src="Main.asp" width="100%" frameborder="0" height="600px" scrolling="auto">xxx</iframe></div>
   <div class="panel-footer panel-right"><p class="text-center">Center aligned text.</p></div>
 </div>
 </body>
