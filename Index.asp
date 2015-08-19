@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="inc/sys.main.css" />
 <!-- 权限文件引用 -->
 <!--#include file="inc/sys.right.asp" -->
+<!--#include file="lib/lib.all.asp" -->
 </head>
 <body>
 <div class="panel panel-default">
@@ -27,7 +28,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">希尼亚</a>
+      <a class="navbar-brand" href="#"><%=ComName%></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -47,6 +48,9 @@
           </ul>
         </li>
       </ul>
+	  <%
+	  sc caidan("库存管理")
+	  %>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
@@ -67,9 +71,8 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-  <div class="panel-body"><iframe id="MainF" name="MainF" src="Main.asp" width="100%" frameborder="0" height="600px" scrolling="auto">xxx</iframe></div>
-  <div class="panel-footer panel-right"><p class="text-center">Center aligned text.</p></div>
+<div class="panel-body"><iframe id="MainF" name="MainF" src="Main.asp" width="100%" frameborder="0" height="600px" scrolling="auto">xxx</iframe></div>
+<div class="panel-footer panel-right"><p class="text-center">Center aligned text.</p></div>
 </div>
 </body>
 </html>

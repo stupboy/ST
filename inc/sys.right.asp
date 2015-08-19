@@ -10,4 +10,6 @@ Session.Timeout=15                                                              
 '3.网站配置文件
 '网站标题
 WebTitle="网站主页"
+'公司名称
+ComName="希尼亚D"
 %>
