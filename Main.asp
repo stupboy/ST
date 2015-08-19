@@ -11,23 +11,43 @@
 <script src="plugin/bootstrap/js/bootstrap.min.js"></script>
 <!-- 全局CSS引用 -->
 <link rel="stylesheet" href="inc/sys.main.css" />
+<!--#include file="lib/lib.all.asp" -->
+<!--#include file="inc/sql.conn.asp" -->
 </head>
 <body>
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">Panel heading</div>
+  <div class="panel-heading">商品基础资料</div>
   <div class="panel-body">
-    <p>...</p>
+<%
+	sql="select * from sys_goods"                    '查询商品基础资料库【范例】
+	set rs=Server.CreateObject("ADODB.RecordSet")
+	rs.open sql,conn,1,1
+	if rs.EOF then 
+	sc "NO answer!"
+	else 
+	 sc "<table class='table'>"
+	 sc "<tr>"
+	 for i=0 to rs.Fields.Count-1
+	 sc "<td>"&rs.Fields(i).Name&"</td>"
+	 next
+	 sc "</tr>"
+	 while not rs.EOF
+	  sc "<tr>"
+	  for each x in rs.Fields
+	  sc "<td>"&x.Value&"</td>"
+	  next
+	  sc "</tr>"
+	  rs.MoveNext
+	 wend 
+	 rs.Close
+	 set rs=nothing 
+	end if 
+%>
   </div>
-
   <!-- List group -->
   <ul class="list-group">
-    <li class="list-group-item"><a href="http://www.baidu.com" target="MainF">销售业绩查看</a></li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul>
+	
 </div>
 </body>
 </html>

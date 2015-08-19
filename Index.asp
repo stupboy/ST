@@ -9,11 +9,17 @@
 <link rel="stylesheet" href="plugin/bootstrap/css/bootstrap-theme.min.css">
 <script src="inc/jquery-1.11.3.min.js"></script>
 <script src="plugin/bootstrap/js/bootstrap.min.js"></script>
+<script>
+var llq=document.documentElement.clientHeight;
+var MF=document.getElementByID("MainF");
+MF.height=llq;
+</script>
 <!-- 全局CSS引用 -->
 <link rel="stylesheet" href="inc/sys.main.css" />
 <!-- 权限文件引用 -->
 <!--#include file="inc/sys.right.asp" -->
 <!--#include file="lib/lib.all.asp" -->
+
 </head>
 <body>
 <div class="panel panel-default">
@@ -34,7 +40,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <!--<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
-        <li><a href="#">刷新</a></li>
+        <li><a href="index.asp">刷新</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">销售管理<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -49,8 +55,11 @@
         </li>
       </ul>
 	  <%
-	  sc caidan("生产管理")
-	  sc caidan("库存管理")
+	  '权限管理 S1 为生产管理
+	  if qx("s1") then 
+	  sc caidan("生产管理","新浪$http://www.sina.com.cn")
+	  end if 
+	  sc caidan("库存管理","新浪$http://www.sina.com.cn")
 	  %>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -72,16 +81,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="panel-body"><iframe id="MainF" name="MainF" src="Main.asp" width="100%" frameborder="0" onLoad="iFrameHeight()" scrolling="auto">xxx</iframe></div>
-<script type="text/javascript" language="javascript">
-    function iFrameHeight() {
-        var ifm= document.getElementById("MainF");
-        var subWeb = document.frames ? document.frames["MainF"].document :ifm.contentDocument;
-            if(ifm != null && subWeb != null) {
-            ifm.height = subWeb.body.scrollHeight;
-            }
-    }
-</script>
+<div class="panel-body"><iframe id="MainF" name="MainF" src="Main.asp" width="100%" frameborder="0" height="620px"  scrolling="auto">xxx</iframe></div>
 <div class="panel-footer panel-right"><p class="text-center">Center aligned text.</p></div>
 </div>
 </body>

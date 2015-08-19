@@ -11,5 +11,7 @@ Session.Timeout=15                                                              
 '网站标题
 WebTitle="网站主页"
 '公司名称
-ComName="希尼亚D"
+ComName="希尼亚 X|T"
+'权限说明
+LimitTotal="%生产管理|S1"
 %>
