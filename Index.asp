@@ -49,6 +49,7 @@
         </li>
       </ul>
 	  <%
+	  sc caidan("生产管理")
 	  sc caidan("库存管理")
 	  %>
       <form class="navbar-form navbar-left" role="search">
@@ -71,7 +72,16 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="panel-body"><iframe id="MainF" name="MainF" src="Main.asp" width="100%" frameborder="0" height="600px" scrolling="auto">xxx</iframe></div>
+<div class="panel-body"><iframe id="MainF" name="MainF" src="Main.asp" width="100%" frameborder="0" onLoad="iFrameHeight()" scrolling="auto">xxx</iframe></div>
+<script type="text/javascript" language="javascript">
+    function iFrameHeight() {
+        var ifm= document.getElementById("MainF");
+        var subWeb = document.frames ? document.frames["MainF"].document :ifm.contentDocument;
+            if(ifm != null && subWeb != null) {
+            ifm.height = subWeb.body.scrollHeight;
+            }
+    }
+</script>
 <div class="panel-footer panel-right"><p class="text-center">Center aligned text.</p></div>
 </div>
 </body>
