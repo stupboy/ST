@@ -11,6 +11,8 @@
 <script src="plugin/bootstrap/js/bootstrap.min.js"></script>
 <!-- 全局CSS引用 -->
 <link rel="stylesheet" href="inc/sys.main.css" />
+<!-- 权限文件引用 -->
+<!--#include file="inc/sys.right.asp" -->
 </head>
 <body>
 <div class="panel panel-default">
