@@ -22,6 +22,7 @@
 <%
 	sql="select * from sys_goods"                    '查询商品基础资料库【范例】
 	set rs=Server.CreateObject("ADODB.RecordSet")
+	'dbs
 	rs.open sql,conn,1,1
 	if rs.EOF then 
 	sc "NO answer!"

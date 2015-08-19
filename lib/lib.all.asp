@@ -39,4 +39,7 @@ function qx(a)
    qx=true
  end if   
 end function 
+function rs()
+set rs=Server.CreateObject("ADODB.RecordSet")
+end function 
 %>
