@@ -29,7 +29,7 @@ Easp.Debug = True
 
 ''配置数据库默认连接：
 'Easp.Db.SetConn "ACCESS", "/sampledata/EaspSampleData.mdb", ""
-'Easp.Db.SetConn "MSSQL", "data", "sa:pass@(local)"
+Easp.Db.SetConn "MSSQL", "ST", "sa:!@#$%asdfg@(local)"
 ''配置第二个数据库连接
 'Easp.Db.SetConnection "connname", "MSSQL", "data", "sa:pass@(local)"
 'Easp.Db.SetConnection "connname", 1, "data", "root:pass@server:port"
