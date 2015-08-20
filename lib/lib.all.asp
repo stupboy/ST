@@ -31,6 +31,7 @@ sub LimitCheck(a)                                         'a为为需检测值�
   response.end                                            '输出提示
  end if                                                   '条件判断结束
 end sub  
+
 '权限检测函数[输出返回值1为是0为否]                                                 '函数结束
 function qx(a)
  if instr(session("session(UserLimit)"),a)=0 then 
@@ -39,4 +40,19 @@ function qx(a)
    qx=true
  end if   
 end function 
+
+'IP获取函数
+Private Function getIP()   
+Dim strIPAddr   
+If Request.ServerVariables("HTTP_X_FORWARDED_FOR") = "" OR InStr(Request.ServerVariables("HTTP_X_FORWARDED_FOR"), "unknown") > 0 Then   
+strIPAddr = Request.ServerVariables("REMOTE_ADDR")   
+ElseIf InStr(Request.ServerVariables("HTTP_X_FORWARDED_FOR"), ",") > 0 Then   
+strIPAddr = Mid(Request.ServerVariables("HTTP_X_FORWARDED_FOR"), 1, InStr(Request.ServerVariables("HTTP_X_FORWARDED_FOR"), ",")-1)   
+ElseIf InStr(Request.ServerVariables("HTTP_X_FORWARDED_FOR"), ";") > 0 Then   
+strIPAddr = Mid(Request.ServerVariables("HTTP_X_FORWARDED_FOR"), 1, InStr(Request.ServerVariables("HTTP_X_FORWARDED_FOR"), ";")-1)   
+Else   
+strIPAddr = Request.ServerVariables("HTTP_X_FORWARDED_FOR")   
+End If   
+getIP = Trim(Mid(strIPAddr, 1, 30))   
+End Function
 %>
