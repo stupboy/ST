@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--#include file="inc/sys.right.asp" -->
 <title>登入页面</title>
 <!-- 新 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="plugin/bootstrap/css/bootstrap.min.css">
@@ -11,6 +12,7 @@
 <script src="plugin/bootstrap/js/bootstrap.min.js"></script>
 <!-- 全局CSS引用 -->
 <link rel="stylesheet" href="inc/sys.main.css" />
+<!-- 引用自定义【函数库】及【数据库连接】 -->
 <!--#include file="lib/lib.all.asp" -->
 <!--#include file="inc/sql.conn.asp" -->
 </head>
@@ -21,17 +23,16 @@
   <div class="panel-body">
 <%
 	sql="select * from sys_goods"                    '查询商品基础资料库【范例】
-	set rs=Server.CreateObject("ADODB.RecordSet")
-	'dbs
-	rs.open sql,conn,1,1
-	if rs.EOF then 
-	sc "NO answer!"
-	else 
-	 sc "<table class='table'>"
-	 sc "<tr>"
-	 for i=0 to rs.Fields.Count-1
-	 sc "<td>"&rs.Fields(i).Name&"</td>"
-	 next
+	set rs=Server.CreateObject("ADODB.RecordSet")    '创建连接对象
+	rs.open sql,conn,1,1                             '打开连接字符
+	if rs.EOF then                                   '如果记录集为空
+	sc "NO answer!"                                  '则输出NO answer
+	else                                             '如果不为空则输出记录
+	 sc "<table class='table'>"                      '输出表格头利用bootstrap类
+	 sc "<tr>"                                       '输出换行标题
+	 for i=0 to rs.Fields.Count-1                    '表标题循环输出  rs.Fields.count 为标题个数 0为开始数量 FOR循环
+	 sc "<td>"&rs.Fields(i).Name&"</td>"             '循环输出表的字段名 .Name为字段名 .value为值
+	 next                                            '循环结束
 	 sc "</tr>"
 	 while not rs.EOF
 	  sc "<tr>"
@@ -46,9 +47,6 @@
 	end if 
 %>
   </div>
-  <!-- List group -->
-  <ul class="list-group">
-	
 </div>
 </body>
 </html>
