@@ -8,20 +8,24 @@ End Sub
 
 '菜单下拉显示函数,a为菜单名称,b为菜“单名$链接”的格式
 function caidan(a,b)
-mx=split(b,"$")
-ms=ubound(mx,1)
-caidan="<ul class='nav navbar-nav'>"&_
+ mx=split(b,"|")     'b为菜单名称及链接，多个菜单用“|”区分开，用SPLIT函数拆为数组
+ ms=ubound(mx,1)     '求数组个数
+ caidan1="<ul class='nav navbar-nav'>"&_  
         "<!--<li class='active'><a href='#'>Link <span class='sr-only'>(current)</span></a></li>-->"&_
         "<!--<li><a href='#'>刷新</a></li>-->"&_
         "<li class='dropdown'>"&_
-          "<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>"&a&"<span class='caret'></span></a>"&_
-          "<ul class='dropdown-menu'>"&_
-            "<li><a href='"&mx(1)&"' target='MainF'>"&mx(0)&"</a></li>"&_
-            "<!--<li role='separator' class='divider'></li>-->"&_
-            "<!--<li><a href='#'>One more separated link</a></li>-->"&_
-          "</ul>"&_
+        "<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>"&a&"<span class='caret'></span></a>"&_
+        "<ul class='dropdown-menu'>"
+ for i = 0 to ms            '循环输出数组中的菜单 For循环
+    mt=split(mx(i),"$")     '用$区分菜单名和链接
+    caidan3=caidan3&"<li><a href='"&mt(1)&"' target='MainF'>"&mt(0)&"</a></li>"    '菜单字符串的拼接
+ next                       '循环输出结束
+ caidan2="<!--<li role='separator' class='divider'></li>-->"&_                     
+        "<!--<li><a href='#'>One more separated link</a></li>-->"&_
+        "</ul>"&_
         "</li>"&_
-      "</ul>"
+        "</ul>"
+ caidan=caidan1&caidan3&caidan2                                                     '字符串的拼接输出
 end function 
 
 '权限检测函数[中断输出]

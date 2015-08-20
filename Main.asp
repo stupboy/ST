@@ -33,18 +33,18 @@
 	 for i=0 to rs.Fields.Count-1                    '表标题循环输出  rs.Fields.count 为标题个数 0为开始数量 FOR循环
 	 sc "<td>"&rs.Fields(i).Name&"</td>"             '循环输出表的字段名 .Name为字段名 .value为值
 	 next                                            '循环结束
-	 sc "</tr>"
-	 while not rs.EOF
-	  sc "<tr>"
-	  for each x in rs.Fields
-	  sc "<td>"&x.Value&"</td>"
-	  next
-	  sc "</tr>"
-	  rs.MoveNext
-	 wend 
-	 rs.Close
-	 set rs=nothing 
-	end if 
+	 sc "</tr>"                                      '输出表格换行</tr>
+	 while not rs.EOF                                '循环输出值 while循环
+	  sc "<tr>"                                      '表格换行开始
+	  for each x in rs.Fields                        '循环开始 对应记录集rs.Fields中的每个对象x
+	  sc "<td>"&x.Value&"</td>"                      '输出值
+	  next                                           '循环结束
+	  sc "</tr>"                                     '表格换行结束
+	  rs.MoveNext                                    '记录下移一条
+	 wend                                            '循环输出结束 while循环
+	 rs.Close                                        '关闭记录集
+	 set rs=nothing                                  '关闭记录集
+	end if                                           '判断记录集if结束
 %>
   </div>
 </div>
