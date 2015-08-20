@@ -59,7 +59,7 @@ MF.height=llq;
 	  if qx("s1") then 
 	  sc caidan("生产管理","新浪$http://www.sina.com.cn")
 	  end if 
-	  sc caidan("库存管理","新浪$http://www.sina.com.cn")
+	  sc caidan("仓库管理","生产$main.asp|百度$http://www.baidu.com")
 	  %>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
