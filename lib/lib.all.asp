@@ -9,7 +9,7 @@ End Sub
 '菜单下拉显示函数,a为菜单名称,b为菜“单名$链接”的格式
 function caidan(a,b)
  mx=split(b,"|")     'b为菜单名称及链接，多个菜单用“|”区分开，用SPLIT函数拆为数组
- ms=ubound(mx,1)     '求数组个数
+ ms=ubound(mx,1)     
  caidan1="<ul class='nav navbar-nav'>"&_  
         "<!--<li class='active'><a href='#'>Link <span class='sr-only'>(current)</span></a></li>-->"&_
         "<!--<li><a href='#'>刷新</a></li>-->"&_
@@ -29,11 +29,11 @@ function caidan(a,b)
 end function 
 
 '权限检测函数[中断输出]
-sub LimitCheck(a)                                         'a为为需检测值，c为条件为真时输出值
- if instr(session("session(UserLimit)"),a)=0 then         '如果没有权限
-  sc "没有权限，权限代号"&a                               '权限提示
-  response.end                                            '输出提示
- end if                                                   '条件判断结束
+sub LimitCheck(a)                                         
+ if instr(session("session(UserLimit)"),a)=0 and len(a&"0")>1 then         
+  sc "没有权限，权限代码：" & a
+  response.end                                            
+ end if                                                   
 end sub  
 
 '权限检测函数[输出返回值1为是0为否]                                                 '函数结束
@@ -44,6 +44,26 @@ function qx(a)
    qx=true
  end if   
 end function 
+
+'字符转多位数
+function str_x(x,y)
+ if len(trim(x))<y then
+  dim a,b
+  a=y-len(trim(x))
+  for i = 1 to a
+  b=b&"0"
+  next 
+  str_x=b&x
+ else 
+  str_x=x
+ end if 
+end function
+'sc  str_x("2",5)
+'日期转字符
+sc  str_x("2",5)
+
+'单号生成函数，变量a为单据类型
+
 
 'IP获取函数
 Private Function getIP()   
